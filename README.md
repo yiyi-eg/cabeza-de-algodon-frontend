@@ -28,18 +28,4 @@ Las funciones disponibles también están limitadas por lo que el backend expone
 
 ## Estructura
 - `core/schema.dart`: UNA definición por entidad (campos, tipos, validaciones, relaciones). La UI se genera de aquí.
-- `core/roles.dart`: matriz de permisos. `state/`: sesión, listas, tiempo real. `ui/`: pantallas.
-
-## Supuestos
-- Los catálogos (estados, tipos, roles, género) coinciden con los CHECK de la base de datos `mydb`. Si cambias un CHECK, actualiza `schema.dart`.
-- "Por cobrar" y "Cobrado" solo cuentan INGRESO_CUOTA y DONACION; EGRESO_GASTO y PAGO_FUNDACION no se suman como ingresos.
-- DPI validado con 13 dígitos. Moneda en quetzales (Q).
-
-## Observaciones del backend (recomendadas)
-1. `SecurityConfig` permite `/ws/**` pero el endpoint es `/ws-asilo`: cambia a `/ws-asilo/**` o el tiempo real no conecta.
-2. El backend no valida roles (solo token). Agrega `requestMatchers(...).hasRole(...)` o `@PreAuthorize`.
-3. `/api/auth/register` es público: cualquiera puede crear un ADMIN.
-4. `GET /api/usuarios` devuelve el hash de la contraseña: usa `@JsonIgnore` o un DTO.
-5. `JwtService` usa una clave fija en código (ignora `JWT_SECRET`) y el token no trae rol/id; la app los obtiene de `/api/usuarios`.
-6. `fichas`/`transacciones` usan `@ManyToOne(LAZY)`: si falla la serialización JSON, agrega `@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})` o DTOs.
-7. `FichaMedicaHistorial` y `TransaccionFinanciera` no tienen `@PrePersist`: la app envía `creadoEn`.
+- `core/roles.dart`: matriz de permisos. `state/`: sesión, listas, tiempo real. `ui/`: pantallas
