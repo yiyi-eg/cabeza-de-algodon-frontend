@@ -129,7 +129,7 @@ class _S extends State<DashboardPage> {
                           decoration: BoxDecoration(color: Colors.white.withOpacity(.18), borderRadius: BorderRadius.circular(99)),
                           child: Text('${roleLabels[role] ?? role} · ${roleTaglines[role] ?? ''}', style: const TextStyle(color: Colors.white, fontSize: 12.5, fontWeight: FontWeight.w600))),
                     ])),
-                    const Icon(Icons.volunteer_activism, color: Colors.white24, size: 72),
+                    if (MediaQuery.of(context).size.width > 520) const Icon(Icons.volunteer_activism, color: Colors.white24, size: 72),
                   ]),
                 ),
                 const SizedBox(height: 20),
@@ -141,7 +141,7 @@ class _S extends State<DashboardPage> {
                         Avatar('', t.$5, icon: t.$4),
                         const SizedBox(width: 14),
                         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          Text(t.$2, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
+                          FittedBox(fit: BoxFit.scaleDown, alignment: Alignment.centerLeft, child: Text(t.$2, maxLines: 1, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800))),
                           Text(t.$1, style: const TextStyle(fontWeight: FontWeight.w600)),
                           Text(t.$3, style: TextStyle(fontSize: 12, color: cs.onSurfaceVariant)),
                         ])),

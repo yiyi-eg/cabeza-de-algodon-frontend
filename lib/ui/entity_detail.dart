@@ -175,8 +175,8 @@ class _IS extends State<InternoDetailPage> {
 
   Widget _head(BuildContext c, String title, {String? action, VoidCallback? onTap}) => Padding(
         padding: const EdgeInsets.only(bottom: 12),
-        child: Row(children: [
-          Expanded(child: Text(title, style: Theme.of(c).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800))),
+        child: Wrap(alignment: WrapAlignment.spaceBetween, crossAxisAlignment: WrapCrossAlignment.center, spacing: 12, runSpacing: 8, children: [
+          Text(title, style: Theme.of(c).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
           if (action != null && onTap != null) FilledButton.tonalIcon(onPressed: onTap, icon: const Icon(Icons.add), label: Text(action)),
         ]),
       );

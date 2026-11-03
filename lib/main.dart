@@ -65,6 +65,13 @@ class _S extends State<AsiloApp> {
           scaffoldMessengerKey: _messenger,
           theme: buildTheme(Brightness.light),
           darkTheme: buildTheme(Brightness.dark),
+          builder: (context, child) {
+            final mq = MediaQuery.of(context);
+            return MediaQuery(
+              data: mq.copyWith(textScaler: mq.textScaler.clamp(minScaleFactor: 0.9, maxScaleFactor: 1.2)),
+              child: child!,
+            );
+          },
           locale: const Locale('es'),
           supportedLocales: const [Locale('es'), Locale('en')],
           localizationsDelegates: GlobalMaterialLocalizations.delegates,

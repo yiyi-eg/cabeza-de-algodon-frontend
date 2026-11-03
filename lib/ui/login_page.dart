@@ -102,9 +102,11 @@ class _S extends State<LoginPage> {
   Widget build(BuildContext context) => Scaffold(
         body: LayoutBuilder(builder: (c, box) {
           final wide = box.maxWidth >= 900;
+          final keyboard = MediaQuery.of(context).viewInsets.bottom > 0;
+          final short = box.maxHeight < 560; // celular horizontal / pantallas bajas
           return wide
               ? Row(children: [Expanded(flex: 5, child: _hero(true)), Expanded(flex: 4, child: _form())])
-              : Column(children: [_hero(false), Expanded(child: _form())]);
+              : Column(children: [if (!keyboard && !short) _hero(false), Expanded(child: _form())]);
         }),
       );
 }

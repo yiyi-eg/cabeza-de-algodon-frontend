@@ -67,7 +67,7 @@ class _S extends State<EntityListPage> {
                   ? FilledButton.icon(onPressed: () => openForm(context, s), icon: const Icon(Icons.add), label: Text(s.newLabel))
                   : null);
         } else {
-          body = Responsive([for (final i in shown) EntityCard(schema: s, item: i)], minWidth: s.key == 'fichas' ? 640 : 520);
+          body = Responsive([for (final i in shown) EntityCard(schema: s, item: i)], minWidth: s.key == 'fichas' ? 560 : 440);
         }
 
         return Align(
