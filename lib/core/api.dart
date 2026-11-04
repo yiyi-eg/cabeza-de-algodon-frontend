@@ -36,10 +36,10 @@ class ApiClient {
         'DELETE' => http.delete(uri, headers: headers),
         _ => http.get(uri, headers: headers),
       };
-      r = await f.timeout(const Duration(seconds: 15));
+      r = await f.timeout(const Duration(seconds: 60));
     } catch (_) {
       throw ApiException(
-          'No se pudo conectar con el servidor ($baseUrl). Verifica que el backend esté activo.');
+          'vuelve a intentarlo, servidor encendiendo.');
     }
     final text = utf8.decode(r.bodyBytes);
     dynamic data;

@@ -91,7 +91,7 @@ class _S extends State<LoginPage> {
                     onPressed: _busy ? null : _go,
                     child: _busy ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)) : const Text('Entrar')),
                 const SizedBox(height: 20),
-                Text('Servidor: $baseUrl', textAlign: TextAlign.center, style: TextStyle(fontSize: 11.5, color: Theme.of(context).hintColor)),
+                Text('programmer: yiyi_eg', textAlign: TextAlign.center, style: TextStyle(fontSize: 11.5, color: Theme.of(context).hintColor)),
               ]),
             ),
           ),
